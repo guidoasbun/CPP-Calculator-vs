@@ -7,6 +7,7 @@ int main()
 {
     //Init Calculator engine
     Calculator calc;
+    
     //Calculator loop
     while (calc.running())
     {

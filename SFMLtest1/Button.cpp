@@ -1,12 +1,22 @@
 #include "Button.h"
 
+Button::Button()
+{
+	
+}
+
+Button::~Button()
+{
+
+}
+
 sf::RectangleShape Button::getButtonShape()
 {
-	return buttonShape;
+	return button;
 }
 
 void Button::setButtonShape(float xCoordinates, float yCoordinates)
 {
-	buttonShape.setPosition(xCoordinates, yCoordinates);
+	button.setPosition(xCoordinates, yCoordinates);
 }
 

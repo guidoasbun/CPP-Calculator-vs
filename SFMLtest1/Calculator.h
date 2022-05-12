@@ -3,11 +3,11 @@
 //
 /*
  * class that acts as the game engine
- * w
  */
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include "Button.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -37,8 +37,8 @@ private:
 
     //Calculator Logic
 
-
     //Calculator Objects
+    Button button;
     sf::RectangleShape display;
     sf::RectangleShape operators;
     std::vector<sf::RectangleShape> operatorButtons;

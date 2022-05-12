@@ -10,7 +10,6 @@ void Calculator::initVariables()
     window = nullptr;
 
     //Calculator Logic
-
 }
 
 void Calculator::initWindow()

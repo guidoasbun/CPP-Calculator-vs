@@ -5,7 +5,7 @@
 class Button
 {
 private:
-	sf::RectangleShape buttonShape;
+	sf::RectangleShape button;
 	char operation;
 
 public:
@@ -15,12 +15,8 @@ public:
 	//Getters
 	sf::RectangleShape getButtonShape();
 
-	
-
 	//Setters
 	void setButtonShape(float xCoordinates, float yCoordinates);
-
-	
 
 };
 
