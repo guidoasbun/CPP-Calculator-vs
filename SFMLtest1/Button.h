@@ -1,22 +1,26 @@
 #pragma once
 
-#include <iostream>
-#include <vector>
-#include <sstream>
+#include "Calculator.h"
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Network.hpp>
 class Button
 {
 private:
+	sf::RectangleShape buttonShape;
+	char operation;
 
 public:
 	Button();
 	virtual ~Button();
 
+	//Getters
+	sf::RectangleShape getButtonShape();
+
+	
+
+	//Setters
+	void setButtonShape(float xCoordinates, float yCoordinates);
+
+	
 
 };
 
