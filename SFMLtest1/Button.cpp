@@ -5,12 +5,6 @@ Button::Button()
 {
 }
 
-Button::Button(float xCoordinates, float yCoordinates, char val)
-{
-	button.setPosition(xCoordinates, yCoordinates);
-	value = val;
-}
-
 //Getters
 sf::RectangleShape Button::getButtonShape()
 {
@@ -22,22 +16,23 @@ char Button::getValue()
 	return value;
 }
 
+void Button::setButtonSize(float x, float y)
+{
+	button.setSize(sf::Vector2f(x, y));
+}
+
 //Setters
 void Button::setButtonPosition(float xCoordinates, float yCoordinates)
 {
 	button.setPosition(xCoordinates, yCoordinates);
 }
 
-void Button::setFillColor()
+void Button::setFillColor(double red, double green, double blue)
 {
-	button.setFillColor(sf::Color(79, 79, 79));
+	button.setFillColor(sf::Color(red, green, blue));
 }
 
 void Button::setButtonValue(char val)
 {
 	value = val;
 }
-
-
-
-

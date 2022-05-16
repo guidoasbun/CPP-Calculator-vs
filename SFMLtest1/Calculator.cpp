@@ -54,34 +54,21 @@ void Calculator::initOperators()
     for (auto op_function : opFunction)
     {
         button.setButtonPosition(xCoordinate, yCoordinate);
-        button.setFillColor();
+        button.setButtonSize(120.f, 80.f);
+        button.setFillColor(79,79,79);
         button.setButtonValue(op_function);
         opButton.push_back(button);
         xCoordinate += 140.f;
     }
-
-    // float const yCoordinate = 180.f;
-    // float xCoordinate = 30.f;
-    //
-    // operators.setSize(sf::Vector2f(120.f, 80.f));
-    // operators.setFillColor(sf::Color(79, 79, 79));
-    //
-    // for (int i = 0; i < 4; ++i)
-    // {
-    //     operators.setPosition(xCoordinate, yCoordinate);
-    //     operatorButtons.push_back(operators);
-    //     xCoordinate += 140.f;
-    // }
 }
 
 void Calculator::initNumbers()
 {
+    std::vector<char> nums = {'7', '8', '9', '4', '5', '6', '1', '2', '3', '.', '0', 'c'};
     float yCoordinate = 180.f;
     float xCoordinate = 30.f;
 
-    numbers.setSize(sf::Vector2f(120.f, 80.f));
-    numbers.setFillColor(sf::Color(150, 150, 150));
-
+    
     for (int i = 0; i < 12; ++i)
     {
         if (i % 3 == 0)
@@ -90,12 +77,15 @@ void Calculator::initNumbers()
             yCoordinate += 105.f;
         }
 
-        numbers.setPosition(xCoordinate, yCoordinate);
-        numberButtons.push_back(numbers);
-        if (i == 10)
+		button.setButtonPosition(xCoordinate, yCoordinate);
+		button.setButtonSize(120.f, 80.f);
+	    button.setFillColor(150, 150, 150);
+        button.setButtonValue(nums[i]);
+        if (i == 11)
         {
-            numbers.setFillColor(sf::Color(190, 38, 38));
+            button.setFillColor(190, 38, 38);
         }
+		numButton.push_back(button);
         xCoordinate += 140.f;
     }
 }
@@ -104,9 +94,10 @@ void Calculator::initEquals()
 {
     float const yCoordinates = 280.f;
     float const xCoordinates = 450.f;
-    equals.setPosition(xCoordinates, yCoordinates);
-    equals.setSize(sf::Vector2f(120.f, 400.f));
-    equals.setFillColor(sf::Color(50, 161, 50));
+    equals.setButtonPosition(xCoordinates, yCoordinates);
+    equals.setButtonSize(120.f, 400.f);
+    equals.setFillColor(50, 161, 50);
+    equals.setButtonValue('=');
 }
 
 //Constructors / Destructors
@@ -149,6 +140,8 @@ void Calculator::pollEvents()
             if (ev.key.code == sf::Keyboard::Escape)
                 window->close();
             break;
+            default:
+                break;
         }
     }
 }
@@ -192,21 +185,20 @@ void Calculator::renderOperators(sf::RenderTarget& target)
     for (auto& e : opButton)
     {
         target.draw(e.getButtonShape());
-        std::cout << "Value: " << e.getValue() << std::endl;
     }
 }
 
 void Calculator::renderNumbers(sf::RenderTarget& target)
 {
-    for (auto& e : numberButtons)
+    for (auto& e : numButton)
     {
-        target.draw(e);
+        target.draw(e.getButtonShape());
     }
 }
 
 void Calculator::renderEquals(sf::RenderTarget& target)
 {
-    target.draw(equals);
+    target.draw(equals.getButtonShape());
 }
 
 void Calculator::render()

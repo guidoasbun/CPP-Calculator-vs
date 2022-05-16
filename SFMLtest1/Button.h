@@ -1,15 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <vector>
-#include <sstream>
-
 #include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Network.hpp>
-
 
 class Button
 {
@@ -20,16 +11,15 @@ private:
 public:
 	//Constructors
 	Button();
-	Button(float xCoordinates, float yCoordinates, char val);
 
 	//Getters
 	sf::RectangleShape getButtonShape();
 	char getValue();
 
 	//Setters
+	void setButtonSize(float x, float y);
 	void setButtonPosition(float xCoordinates, float yCoordinates);
-	void setFillColor();
+	void setFillColor(double red, double green, double blue);
 	void setButtonValue(char val);
-
 };
 

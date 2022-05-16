@@ -40,15 +40,13 @@ private:
     Button button;
 
     std::vector<Button> opButton;
+    std::vector<Button> numButton;
+	Button equals;
 
     sf::RectangleShape display;
-    sf::RectangleShape operators;
-    std::vector<sf::RectangleShape> operatorButtons;
-    sf::RectangleShape numbers;
-    std::vector<sf::RectangleShape> numberButtons;
-    sf::RectangleShape equals;
+    
 
-    //Private Functions
+    //Private Init Functions
     void initVariables();
     void initWindow();
     void initDisplay();
@@ -69,10 +67,12 @@ public:
     //Functions
     void pollEvents();
 
+    //Update Functions
     void updateMousePosition();
     void updateDisplayText();
     void update();
 
+    //Render functions
     void renderDisplayText(sf::RenderTarget& target);
     void renderDisplay(sf::RenderTarget& target);
     void renderOperators(sf::RenderTarget& target);
