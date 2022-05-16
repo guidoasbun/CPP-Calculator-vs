@@ -4,6 +4,9 @@
 /*
  * class that acts as the game engine
  */
+
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -15,8 +18,6 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Network.hpp>
 
-#ifndef GAME_H
-#define GAME_H
 
 class Calculator
 {
@@ -35,10 +36,11 @@ private:
     sf::Font font;
     sf::Text uiText;
 
-    //Calculator Logic
-
     //Calculator Objects
     Button button;
+
+    std::vector<Button> opButton;
+
     sf::RectangleShape display;
     sf::RectangleShape operators;
     std::vector<sf::RectangleShape> operatorButtons;
@@ -55,6 +57,7 @@ private:
     void initOperators();
     void initNumbers();
     void initEquals();
+
 public:
     //Constructors / Destructors
     Calculator();
@@ -77,6 +80,3 @@ public:
     void renderEquals(sf::RenderTarget& target);
     void render();
 };
-
-
-#endif //SFMLTEMPLATE_GAME_H

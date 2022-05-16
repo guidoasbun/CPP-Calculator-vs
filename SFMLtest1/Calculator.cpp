@@ -47,18 +47,31 @@ void Calculator::initDisplay()
 
 void Calculator::initOperators()
 {
+    std::vector<char> opFunction ={ '+', '-', '*', '/' };
     float const yCoordinate = 180.f;
-    float xCoordinate = 30.f;
+	float xCoordinate = 30.f;
 
-    operators.setSize(sf::Vector2f(120.f, 80.f));
-    operators.setFillColor(sf::Color(79, 79, 79));
-
-    for (int i = 0; i < 4; ++i)
+    for (auto op_function : opFunction)
     {
-        operators.setPosition(xCoordinate, yCoordinate);
-        operatorButtons.push_back(operators);
+        button.setButtonPosition(xCoordinate, yCoordinate);
+        button.setFillColor();
+        button.setButtonValue(op_function);
+        opButton.push_back(button);
         xCoordinate += 140.f;
     }
+
+    // float const yCoordinate = 180.f;
+    // float xCoordinate = 30.f;
+    //
+    // operators.setSize(sf::Vector2f(120.f, 80.f));
+    // operators.setFillColor(sf::Color(79, 79, 79));
+    //
+    // for (int i = 0; i < 4; ++i)
+    // {
+    //     operators.setPosition(xCoordinate, yCoordinate);
+    //     operatorButtons.push_back(operators);
+    //     xCoordinate += 140.f;
+    // }
 }
 
 void Calculator::initNumbers()
@@ -176,11 +189,11 @@ void Calculator::renderDisplay(sf::RenderTarget& target)
 
 void Calculator::renderOperators(sf::RenderTarget& target)
 {
-    for (auto& e : operatorButtons)
+    for (auto& e : opButton)
     {
-        target.draw(e);
+        target.draw(e.getButtonShape());
+        std::cout << "Value: " << e.getValue() << std::endl;
     }
-
 }
 
 void Calculator::renderNumbers(sf::RenderTarget& target)

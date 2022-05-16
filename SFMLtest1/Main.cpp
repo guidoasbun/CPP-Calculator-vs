@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Calculator.h"
+#include "Button.h"
 
 //using namespace sf;
 
